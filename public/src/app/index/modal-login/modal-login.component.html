@@ -1,0 +1,78 @@
+<div class="modal fade" #modalLogin id="modalLogin" tabindex="-1" role="dialog" aria-labelledby="modalCategoryLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content col-info">
+            <div class="modal-body">
+                <div id="loader">
+                    <img src="assets/img/loader-preview.svg" alt="loading">
+                </div>
+                <form method="#" action="#">
+                    <!--   if you want to have the card without animation please remove the ".card-hidden" class   -->
+                    <div class="">
+                        <div class="header text-center">
+                            <div class="badge badge-header text-center">
+                                <i class="fa fa-user ico-user"></i>
+                            </div>
+                            <h3>LOGIN</h3>
+                            <br>
+                        </div>
+                        <form #loginForm="ngForm" novalidate (ngSubmit)="onLogin(loginForm.value, loginForm.valid)">
+                            <div class="content">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <a class="fa fas fa-envelope"> </a>
+                                        </span>
+                                        <input type="email" placeholder="EMAIL" class="form-control" name="email"
+                                            [(ngModel)]="userLogin.email" required #email="ngModel"
+                                            pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$">
+
+                                    </div>
+                                    <small [hidden]="email.valid || (email.pristine && !loginForm.submitted)"
+                                        class="text-danger">
+                                        Email inválido.
+                                    </small>
+                                </div>
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <span class="input-group-addon">
+                                            <a class="fa fas fa-lock"></a>
+                                        </span>
+                                        <input type="password" placeholder="CONTRASEÑA" class="form-control"
+                                            name="password" [(ngModel)]="userLogin.password" required minlength="6"
+                                            #password="ngModel">
+                                    </div>
+                                    <small [hidden]="password.valid || (password.pristine && !loginForm.submitted)"
+                                        class="text-danger">
+                                        ingrese contraseña.
+                                    </small>
+                                </div>
+                                <br>
+                                <div class="row register">
+                                    <div class="col-sm-6 text-center">
+                                        <a data-dismiss='modal' routerLinkActive=""  [routerLink]="['/pages/register']" 
+                                        class="login">
+                                            QUIERO REGISTRARME
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-6 text-center">
+                                        OLVIDE MI CONTRASEÑA
+                                    </div>
+                                </div>
+                                <br>
+                            </div>
+                            <div class="row text-center">
+                                <div class="col-sm-2"></div>
+                                <div class="col-sm-8">
+                                    <button type="submit" class="btn btn-fill btn-ingresar btn-block btn-wd btn-login">
+                                        INGRESAR
+                                    </button>
+                                </div>
+                                <div class="col-sm-2"></div>
+                            </div>
+                        </form>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

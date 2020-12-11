@@ -1,0 +1,169 @@
+
+
+<body>
+  <!-- *** fixedButton / Carrito flotante *** -->
+  <div class="container-fluid">
+    <div class="scrolling fixed">
+      <div class="row row-w-100">
+        <!-- <div *ngIf="arrayProductCart.length!=0" class="col-xs-6">
+        <div data-toggle="modal" data-target="#modalLogin" class="" (click)="showCart = !showCart">
+          <img src="../../assets/img/carrito_logo.svg">
+        </div>
+      </div> -->
+        <!-- <div *ngIf="arrayProductCart.length==0" class="col-xs-6" (click)="showCart = !showCart"> -->
+        <div class="col-xs-6" (click)="stateChange()">
+          <span class="badge badge-danger">0</span>
+          <img src="../../assets/img/carrito_logo.svg">
+        </div>
+        <div class="col-xs-6" style="border-left: 1px solid white;">
+          <img src="../../assets/img/corazon.svg">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- *** # fixedButton / Carrito flotante *** -->
+  <!--PARTE PRINCIPAL-->
+
+  <div class="">
+    <div class="col-sm-4">
+    </div>
+
+    <!--LOGO INICIAL-->
+    <div class="col-sm-4">
+      <div class="brand">
+        <div class="img-responsive b-logo " style="min-width: 100%;">
+          <a>
+            <img data-toggle="modal" data-target="#modalLogin" src="../../assets/img/logo_inicio.svg">
+          </a>
+        </div>
+      </div>
+      <br>
+
+      <!--BARRA DE BUSQUEDA-->
+      <div class="col-sm-12 text-center ">
+        <div class="brand text-center">
+          <div class="b-search">
+            <input (keyup)='searchProduct()' type="text" placeholder="Buscar" name="seachText" id="seachText"
+              [(ngModel)]="seachText">
+            <button><i class="fa fa-search"></i></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="col-sm-4 text-center iconsSocial">
+      <a class="icon a-social" href="" target="_blank"><img class="socialnetf" data-aos="fade-down"
+          data-aos-duration="1500" onmouseover="this.src='../../assets/img/face_amarillo.svg'"
+          onmouseout="this.src='../../assets/img/face_gris.svg'" src="../../assets/img/face_gris.svg"
+          alt="Facebook"></a>
+
+
+
+      <a class=" icon a-social" href="" target="_blank"><img class="socialnet" data-aos="fade-down"
+          data-aos-duration="1500" onmouseover="this.src='../../assets/img/twitter_amarillo.svg'"
+          onmouseout="this.src='../../assets/img/twitter_gris.svg'" src="../../assets/img/twitter_gris.svg"
+          alt="Twitter"></a>
+
+
+      <a class=" icon a-social" href="" target="_blank"><img class="socialnet" data-aos="fade-down"
+          data-aos-duration="1500" onmouseover="this.src='../../assets/img/insta_amarillo.svg'"
+          onmouseout="this.src='../../assets/img/insta_gris-01.svg'" src="../../assets/img/insta_gris-01.svg"
+          alt="Instagram"></a>
+
+
+      <a class="icon a-social" href="" target="_blank"><img class="socialnet" data-aos="fade-down"
+          data-aos-duration="1500" onmouseover="this.src='../../assets/img/wpp_amarillo.svg'"
+          onmouseout="this.src='../../assets/img/wpp.svg'" src="../../assets/img/wpp.svg" alt="Whatsapp"></a>
+
+    </div>
+  </div>
+
+  <div class="container-fostrap">
+    <div class="container">
+    </div>
+  </div>
+  <!--CARRITO FLOTANTE-->
+
+  <div class="container-fluid">
+    <div class=" scrolling fixed">
+      <button type="button" class="btn20" id="newquote">
+        <img src="../../assets/img/carrito_logo.svg">
+        <span></span>
+      </button>
+      <button type="button" class="btn20" id="newquote" style="border-left: 1px solid white;">
+        <img src="../../assets/img/corazon.svg">
+      </button>
+    </div>
+  </div>
+
+  <!--#CARRITO FLOTANTE-->
+
+
+
+  <!--#PARTE PRINCIPAL-->
+
+  <!--PARTE PRODUCTOS-->
+  <div class="container">
+    <div class="container " style="margin-bottom: 3rem !important;">
+      <div class="row text-right">
+        <div class="col">
+
+          <div class="text-right" style="margin-right: 5rem;">
+
+            <div class="btn-group ">
+              Ordenar:
+              <button type="button" class=" dropdown-toggle" style="padding-top: 0; padding-bottom:0"
+                data-toggle="dropdown">
+                Filtro<span class="caret "></span>
+              </button>
+              <ul class="dropdown-menu text-right" style="width: 25rem !important;  " role="menu">
+                <li><a (click)="getProducts()">Mejor resultado</a></li>
+                <li><a (click)="getProductsAsc()">Precio: más bajo primero</a></li>
+                <li><a (click)="getProductsDesc()">Precio: más alto primero</a></li>
+              </ul>
+              <br>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="products" class="row list-group">
+      <ng-container *ngFor="let product of arrayproduct; let i = index">
+        <div class="item  col-xs-4 col-lg-4">
+          <div class="thumbnail">
+            <img class="group img-card" src="{{product.pro_url}}" alt="{{product.pro_nombre}}" />
+            <div class="caption">
+              <h4 class="group inner list-group-item-heading titulo-salas2">
+                {{product.pro_nombre}}</h4>
+              <p style="margin: 0% !important;">
+                {{product.pro_description}}</p>
+              <div class="row">
+                <div class="col-xs-12 col-md-6">
+                  <p class="lead" style="font-weight: bold;">
+                    ${{product.pro_precio}}</p>
+                </div>
+                <div class="col-xs-12 col-md-6">
+                  <button type="button" class="btn btn-warning">Agregar al carro </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+
+  <!--#PARTE PRODUCTOS-->
+
+
+
+
+
+
+</body>

@@ -1,0 +1,6 @@
+<button (click)="showCart = !showCart" [disabled]="arrayProductCart.length==0">
+
+  <span *ngIf="showCart"> Seguir comprando</span>
+  <span *ngIf="!showCart"> Ver carrito </span>
+
+</button>

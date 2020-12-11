@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="container" style="margin-top: 20px !important; margin-bottom: 20px !important;">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="clearfix" (click)='homeNavigate()'>
+                    <a class="btn btn-primary" href="#">
+                        <i class="fa fa-arrow-left"></i>
+                        Home
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    Filtrar por: <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu text-right" style="width: 25rem !important;" role="menu">
+                    <li><a (click)="getProducts()">Mejor resultado</a></li>
+                    <li><a (click)="getProductsAsc()">Precio: más bajo primero</a></li>
+                    <li><a (click)="getProductsDesc()">Precio: más alto primero</a></li>
+                </ul>
+                <br>
+            </div>
+            <div class="col-sm-3">
+                <h2>{{category}}</h2>
+            </div>
+        </div>
+    </div>
+    <div id="products" class="row list-group">
+        <div *ngFor="let product of arrayproduct; let i = index" class="item col-sm-4 col-md-4 col-lg-4">
+            <div class="thumbnail">
+                <img class="group img-card" src="{{product.pro_url}}" alt="{{product.pro_nombre}}" />
+                <div class="caption">
+                    <h4 class="group inner list-group-item-heading titulo-salas2">
+                        {{product.pro_nombre}}</h4>
+                    <p style="margin: 0% !important;">
+                        {{product.pro_description}}</p>
+
+                </div>
+                <div class="row row-w-100">
+                    <div class="col-sm-4 col-md-4">
+                        <p class="lead" style="font-weight: bold;">
+                            ${{product.pro_precio}}
+                        </p>
+                    </div>
+                    <div class="col-sm-8 col-md-8 text-right">
+                        <button (click)='indexComponent.agregarCarrito(product)' type="button" class="btn btn-default btn-sm">
+                            <i class="fa fa-cart-arrow-down cart"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

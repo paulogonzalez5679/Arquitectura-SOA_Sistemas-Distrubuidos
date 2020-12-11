@@ -1,0 +1,52 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="content">
+            <div class="fresh-datatables">
+              <table id="datatablesProduct" class="table table-striped table-no-bordered table-hover table-responsive" cellspacing="0"
+                width="100%" style="width:100%">
+                <thead>
+                  <tr>
+                    <th>{{ dataTable.headerRow[0] }}</th>
+                    <th>{{ dataTable.headerRow[1] }}</th>
+                    <th>{{ dataTable.headerRow[2] }}</th>
+                    <th>{{ dataTable.headerRow[3] }}</th>
+                    <th>{{ dataTable.headerRow[4] }}</th>
+                    <th>{{ dataTable.headerRow[5] }}</th>
+                    <th>{{ dataTable.headerRow[6] }}</th>
+                    <!-- <th>{{ dataTable.headerRow[7] }}</th>
+                    <th>{{ dataTable.headerRow[8] }}</th>
+                    <th class="disabled-sorting text-right">{{ dataTable.headerRow[9] }}</th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let product of arrayproduct; let i = index">
+                    <td>{{i+1}}</td>
+                    <td>{{product.id}}</td>
+                    <td>{{product.nombre}}</td>
+                    <td>{{product.descripcion}}</td>
+                    <td>{{product.precio}}</td>
+                    <td><img class="img-category" src="{{product.imgen}}" alt=""></td>
+
+                    <td>
+                      <bSwitch
+                      [switch-on-color]="'primary'" class="" style="max-height: 10px !important; max-width: 20px;"
+                        [ngClass]="['switch','switch-sidebar-image']" (changeState)="estadoNuevo($event)">
+                      </bSwitch>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<hr>
+
+
+

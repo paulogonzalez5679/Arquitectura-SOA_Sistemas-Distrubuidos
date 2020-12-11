@@ -1,0 +1,17 @@
+.fas {
+    color: #ffc009;
+}
+.fa-user{
+    color: #ffc009;
+}
+.login{
+    color: #1D1D1B;
+}
+
+.login:hover{
+    color: #ffc009;
+}
+
+.btn-ingresar:hover{
+    background-color: #ffc009;
+}
