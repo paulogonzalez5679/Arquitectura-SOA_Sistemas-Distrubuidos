@@ -52,7 +52,8 @@ export class ProductsComponent implements OnInit {
     private dataService: DataService) { }
 
   ngOnInit(): void {
- 
+    
+    
     this.infoUser = JSON.parse(localStorage.getItem("infoUser"));
     this.user = {};
     this.product = JSON.parse(localStorage.getItem("product"));
@@ -117,12 +118,6 @@ export class ProductsComponent implements OnInit {
       this.comida = data['hints'];
     })
   }
-  consultar2() {
-    this.dataService.getMusica(this.busqueda2).subscribe((data2: any[]) => {
-      console.log(data2);
-      // this.comida = data['hints'];
-    })
-  }
   initDataTable() {
     let aaa = this.tablaDatos;
     $("#datatablesProduct").DataTable().destroy();
@@ -147,6 +142,16 @@ export class ProductsComponent implements OnInit {
       });
     }, 10);
   }
+
+
+
+  consultar2() {
+    this.dataService.getMusica(this.busqueda2).subscribe((data2: any[]) => {
+      console.log(data2);
+      // this.comida = data['hints'];
+    })
+  }
+  
 
   /**
    * 

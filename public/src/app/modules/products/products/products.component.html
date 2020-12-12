@@ -111,8 +111,8 @@
   BUSCAR CANCIONES
 </h1>
 
-<input type="text" name="message_name" required placeholder="Nombre" class="form-control input-contact"
-  [(ngModel)]="busqueda2">
+<input type="text" name="message_cancion" required placeholder="Nombre" class="form-control input-contact"
+  [(ngModel)]="busqueda2" required #message_cancion="ngModel">
 <button (click)="consultar2()" class="btn btn-success">
   BUSCAR
 </button>
