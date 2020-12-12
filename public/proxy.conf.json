@@ -1,0 +1,13 @@
+{
+    "/getFood/*":{
+        "target": "http://localhost:8087",
+        "secure": false,
+        "logLevel": "debug"
+    },
+    "/getMusica/*":{
+        "target":"http://localhost:8888",
+        "secure": false,
+        "logLevel": "debug"
+    }
+    
+}

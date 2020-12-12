@@ -5,8 +5,8 @@
         <div class="card">
           <div class="content">
             <div class="fresh-datatables">
-              <table id="datatablesProduct" class="table table-striped table-no-bordered table-hover table-responsive" cellspacing="0"
-                width="100%" style="width:100%">
+              <table id="datatablesProduct" class="table table-striped table-no-bordered table-hover table-responsive"
+                cellspacing="0" width="100%" style="width:100%">
                 <thead>
                   <tr>
                     <th>{{ dataTable.headerRow[0] }}</th>
@@ -31,9 +31,9 @@
                     <td><img class="img-category" src="{{product.imgen}}" alt=""></td>
 
                     <td>
-                      <bSwitch
-                      [switch-on-color]="'primary'" class="" style="max-height: 10px !important; max-width: 20px;"
-                        [ngClass]="['switch','switch-sidebar-image']" (changeState)="estadoNuevo($event)">
+                      <bSwitch [switch-on-color]="'primary'" class=""
+                        style="max-height: 10px !important; max-width: 20px;"
+                        [ngClass]="['switch','switch-sidebar-image']" (changeState)="estadoNuevo($event, product)">
                       </bSwitch>
                     </td>
                   </tr>
@@ -47,6 +47,72 @@
   </div>
 </div>
 <hr>
+<h1>
+  BUSCAR COMIDA
+</h1>
+<input type="text" name="message_name" required placeholder="Nombre" class="form-control input-contact"
+  [(ngModel)]="busqueda" required #message_name="ngModel">
+
+<button (click)="consultar()" class="btn btn-success">
+  BUSCAR
+</button>
+<div class="main-content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="content">
+            <div class="fresh-datatables">
+              <table id="datatablesProduct2" class="table table-striped table-no-bordered table-hover table-responsive"
+                cellspacing="0" width="100%" style="width:100%">
+                <thead>
+                  <tr>
+                    <th>{{ dataTable2.headerRow[0] }}</th>
+                    <th>{{ dataTable2.headerRow[1] }}</th>
+                    <th>{{ dataTable2.headerRow[2] }}</th>
+                    <th>{{ dataTable2.headerRow[3] }}</th>
+                    <th>{{ dataTable2.headerRow[4] }}</th>
+                    <th>{{ dataTable2.headerRow[5] }}</th>
+                    <th>{{ dataTable2.headerRow[6] }}</th>
+                    <!-- <th>{{ dataTable.headerRow[7] }}</th>
+                    <th>{{ dataTable.headerRow[8] }}</th>
+                    <th class="disabled-sorting text-right">{{ dataTable.headerRow[9] }}</th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor=" let comida of comida">
+                    <td>{{comida.food.label}}</td>
+                    <td>{{comida.food.foodContentsLabel}}</td>
+                    <td><img class="img-category" src="{{comida.food.image}}" alt=""></td>
+                    <td>{{comida.food.nutrients.CHOCDF}}</td>
+                    <td>{{comida.food.nutrients.ENERC_KCAL}}</td>
+                    <td>{{comida.food.nutrients.FAT}}</td>
+                    <td>
+                      <bSwitch [switch-on-color]="'primary'" class=""
+                        style="max-height: 10px !important; max-width: 20px;"
+                        [ngClass]="['switch','switch-sidebar-image']" (changeState)="estadoNuevo2($event, comida)">
+                      </bSwitch>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
+<hr>
 
+<h1>
+  BUSCAR CANCIONES
+</h1>
+
+<input type="text" name="message_name" required placeholder="Nombre" class="form-control input-contact"
+  [(ngModel)]="busqueda2">
+<button (click)="consultar2()" class="btn btn-success">
+  BUSCAR
+</button>
