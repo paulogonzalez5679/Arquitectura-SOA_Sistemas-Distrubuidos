@@ -29,11 +29,25 @@ export class ProductService {
   //     .set(product);
   // }
   public createDecoracion(decoracion: Decoration, usuario: Users) {
+    console.log(decoracion.id);
+    console.log(usuario.user_email);
+    
     return this.category
-    .collection("decoration")
+    .collection("users_collection")
     .doc(usuario.user_email)
     .collection("user_decoracion")
-    .doc(decoracion.id).set(decoracion);
+    .doc(decoracion.nombre).set(decoracion); 
+  }
+
+  public createComida(comida: Comida, usuario: Users) {
+    console.log(comida.food.label);
+    console.log(usuario.user_email);
+    
+    return this.category
+    .collection("users_collection")
+    .doc(usuario.user_email)
+    .collection("user_comida")
+    .doc(comida.food.label).set(comida); 
   }
 
   //Crea una nueva categoria
