@@ -7,6 +7,12 @@
   font-display: swap;
 }
 
+.logo-home {
+  width: 350px;
+  margin: 0 auto;
+  margin-bottom:5%
+}
+
 @font-face {
   font-family: "Geomanist";
   src: url("/../../assets/fonts/Geomanist-Medium.woff2") format("woff2"),
@@ -417,7 +423,7 @@ margin: 0;
   border-style: none;
 }
 .titulo-salas2{
-  color: #606060;
+  color: #ffffff;
   font-family: "Univers LT Std";
   font-weight: bold;
   font-style: normal;
