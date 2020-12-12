@@ -20,9 +20,11 @@ export interface DataTable {
 export class ProductsComponent implements OnInit {
 
   public comida: Comida[];
-  // public musica: Musica[];
+  public musica: Musica[];
+
   public busqueda: string = "";
   public busqueda2: string = "";
+  public busqueda3: string = "";
   public dataTable2: DataTable;
   public dataTable: DataTable;
   public product: Decoration;
@@ -60,6 +62,8 @@ export class ProductsComponent implements OnInit {
     this.product = {};
     this.comida = JSON.parse(localStorage.getItem("comida"))
     this.comida= [];
+    this.musica = JSON.parse(localStorage.getItem("musica"))
+    this.musica= [];
 
     this.dataTable = {
       headerRow: [
@@ -118,6 +122,8 @@ export class ProductsComponent implements OnInit {
       this.comida = data['hints'];
     })
   }
+
+
   initDataTable() {
     let aaa = this.tablaDatos;
     $("#datatablesProduct").DataTable().destroy();
@@ -142,15 +148,24 @@ export class ProductsComponent implements OnInit {
       });
     }, 10);
   }
-
-
-
   consultar2() {
-    this.dataService.getMusica(this.busqueda2).subscribe((data2: any[]) => {
+    this.dataService.getMusica(this.busqueda3).subscribe((data2: any[]) => {
       console.log(data2);
-      // this.comida = data['hints'];
+      this.musica = data2['tracks']['hits'];
+      console.log(this.musica);
+      
     })
   }
+ 
+
+
+
+  // consultar2() {
+  //   this.dataService.getMusica(this.busqueda2).subscribe((data2: any[]) => {
+  //     console.log(data2);
+  //     // this.comida = data['hints'];
+  //   })
+  // }
   
 
   /**
