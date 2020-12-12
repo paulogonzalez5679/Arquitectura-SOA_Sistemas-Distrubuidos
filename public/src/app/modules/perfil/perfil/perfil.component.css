@@ -7,6 +7,12 @@
   font-display: swap;
 }
 
+.logo-home {
+  width: 350px;
+  margin: 0 auto;
+  margin-bottom:5%
+}
+
 @font-face {
   font-family: "Geomanist";
   src: url("/../../assets/fonts/Geomanist-Medium.woff2") format("woff2"),
@@ -125,8 +131,8 @@
 }
 
 .icon-bar{
-  background: #ffc009 !important;
-  color: #ffc009 !important;
+  background: #ff16ce !important;
+  color: #ff16ce !important;
 }
 
 .opc4 {
@@ -417,7 +423,7 @@ margin: 0;
   border-style: none;
 }
 .titulo-salas2{
-  color: #606060;
+  color: #ffffff;
   font-family: "Univers LT Std";
   font-weight: bold;
   font-style: normal;
@@ -436,18 +442,18 @@ margin: 0;
 
 
 .opc:hover {
-  color: #ffc009;
+  color: #ff16ce;
 }
 
 .opcMenu:hover{
-  color: #ffc009;
+  color: #ff16ce;
 
 }
 
 .opc1:hover {
-  color: #ffc009;
+  color: #ff16ce;
   padding-bottom: 2%;
-  border-bottom: #ffc009 solid 6px;
+  border-bottom: #ff16ce solid 6px;
 
 
 
@@ -677,7 +683,7 @@ margin: 0;
   position: fixed;
   top: 0;
   width: 100%;
-  box-shadow: 0 2px 5px #ffc009;
+  box-shadow: 0 2px 5px #ff16ce;
   z-index: 999;
 }
 
@@ -883,7 +889,7 @@ img.socialnet {
 }
 
 .card-servicios:hover {
-  background-color: #ffc009;
+  background-color: #ff16ce;
 }
 
 /* Detecta hover del parent y aplica estilo al child */
@@ -1417,7 +1423,7 @@ img.socialnet {
 .btn-OK {
   min-height: 5rem;
   color: #ffffff;
-  background-color: #ffc009;
+  background-color: #ff16ce;
   height:7rem;
   border: none;
 }
@@ -1715,7 +1721,7 @@ border-style: none;
   } 
 
   .sesion-perfil{
-    background-color: #ffc009;
+    background-color: #ff16ce;
   }
 
 .container44  .btn2 {
