@@ -28,8 +28,8 @@ export class IndexComponent implements OnInit {
   private nativeElement: Node;
   private toggleButton;
   private sidebarVisible: boolean;
-  public imgSrc1: string = '../../assets/img/comida.jpg';
-  public imgSrc2: string = '../../assets/img/decoracion.jpg';
+  public imgSrc1: string = '../../assets/img/comida icon.svg';
+  public imgSrc2: string = '../../assets/img/decoracion.svg';
   public imgSrc3: string = '../../assets/img/peliculas.png';
   public imgSrc4: string = '../../assets/img/decoracion.svg';
   public imgSrc5: string = '../../assets/img/escritorios.svg';

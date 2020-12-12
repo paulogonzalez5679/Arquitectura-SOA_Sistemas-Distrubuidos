@@ -35,38 +35,18 @@
         </div>
 
         <!--LOGO INICIAL-->
-        <div class="col-sm-4">
+        <div class="col-sm-12">
             <div class="brand">
                 <div class="img-responsive b-logo " style="min-width: 100%;">
                     <a>
-                        <img data-toggle="modal" data-target="#modalLogin" src="../../assets/img/logo_inicio.svg">
+                        <img data-toggle="modal" data-target="#modalLogin" src="../../assets/img/mydateLogo.PNG">
                     </a>
                 </div>
             </div>
             <br>
         </div>
 
-        <div class="col-sm-4 text-center iconsSocial">
-            <a class="icon a-social" href="" target="_blank"><img class="socialnetf" data-aos="fade-down"
-                    data-aos-duration="1500" onmouseover="this.src='../../assets/img/face_amarillo.svg'"
-                    onmouseout="this.src='../../assets/img/face_gris.svg'" src="../../assets/img/face_gris.svg"
-                    alt="Facebook"></a>
-
-            <a class=" icon a-social" href="" target="_blank"><img class="socialnet" data-aos="fade-down"
-                    data-aos-duration="1500" onmouseover="this.src='../../assets/img/twitter_amarillo.svg'"
-                    onmouseout="this.src='../../assets/img/twitter_gris.svg'" src="../../assets/img/twitter_gris.svg"
-                    alt="Twitter"></a>
-
-            <a class=" icon a-social" href="" target="_blank"><img class="socialnet" data-aos="fade-down"
-                    data-aos-duration="1500" onmouseover="this.src='../../assets/img/insta_amarillo.svg'"
-                    onmouseout="this.src='../../assets/img/insta_gris-01.svg'" src="../../assets/img/insta_gris-01.svg"
-                    alt="Instagram"></a>
-
-            <a class="icon a-social" href="" target="_blank"><img class="socialnet" data-aos="fade-down"
-                    data-aos-duration="1500" onmouseover="this.src='../../assets/img/wpp_amarillo.svg'"
-                    onmouseout="this.src='../../assets/img/wpp.svg'" src="../../assets/img/wpp.svg" alt="Whatsapp"></a>
-
-        </div>
+        
     </div>
 
     <div class="container-fostrap">
@@ -90,7 +70,7 @@
                     </div>
 
                     <div>
-                        <button type="button" class="btn btn-light pull-right logout borde" (click)="logout()">CERRAR
+                        <button type="button" class="btn btn-light pull-right logout borde  titulo-salas2" (click)="logout()">CERRAR
                             SESIÓN</button>
                     </div>
 
@@ -106,81 +86,7 @@
 
         <!--CARRITO FLOTANTE-->
 
-        <div class="container-fluid">
-            <div class=" scrolling fixed">
-                <button type="button" class="btn20" id="newquote">
-                    <img src="../../assets/img/carrito_logo.svg">
-                    <span></span>
-                </button>
-                <button type="button" class="btn20" id="newquote" style="border-left: 1px solid white;">
-                    <img src="../../assets/img/corazon.svg">
-                </button>
-            </div>
-        </div>
-
-        <!--#CARRITO FLOTANTE-->
-
-        <!-- *** Botones *** -->
-        <div class="sesion-contact text-center">
-            <div class="container">
-                <div class="row justify-content-center ">
-                    <div class="row">
-                        <a href="https://www.linkedin.com/company/buy-buy-center/" target="_blank"
-                            class="a-redes-sociales">
-                            <img onmouseover="this.src='../../assets/img/cliente/comunidad boton.svg'"
-                                onmouseout="this.src='../../assets/img/cliente/cominidad.svg'"
-                                src="../../assets/img/cliente/cominidad.svg" class="img-botones" alt="">
-                        </a>
-                        <a href="https://www.instagram.com/buybuycenter/" target="_blank" class="a-redes-sociales">
-                            <img onmouseover="this.src='../../assets/img/cliente/wishlist2.svg'"
-                                onmouseout="this.src='../../assets/img/cliente/wishlist.svg'"
-                                src="../../assets/img/cliente/wishlist.svg" class="img-botones" alt="">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!-- *** #Botones *** -->
-        </div>
+       
 
     </section>
-
-    <section>
-        <div class="container">
-            <table id="cart" class="table table-hover table-condensed">
-                <thead>
-                    <tr>
-                        <th style="width:40%">Nombre</th>
-                        <th style="width:30%">Descripción</th>
-                        <th style="width:10%">Precio</th>
-                        <th style="width:20%">Agregar al carro de compras</th>
-                    </tr>
-                </thead>
-                <!-- <tbody>
-                    <tr *ngFor="let product of arrayProductCart">
-                        <td data-th="Nombre">
-                            <h4 class="nomargin">{{product.pro_nombre}}</h4>
-                        </td>
-                        <td data-th="Descripcion">
-                            <h4 class="nomargin">{{product.pro_descripcion}}</h4>
-                        </td>
-                        <td data-th="Precio">${{product.pro_precio}}</td>
-                        <td class="actions" data-th="">
-                            <button (click)='borrar()' class="btn btn-danger btn-warning"><i
-                                    class="fa fa-cart-plus"></i></button>
-                        </td>
-                    </tr>
-                </tbody> -->
-                <tfoot>
-                    <tr>
-                        <td><a href="#" class="btn btn-seguir-comprando" ><i
-                                    class="fa fa-angle-left"></i> Ver más productos
-                            </a></td>
-                        <td colspan="2" class="hidden-xs"></td>
-                        <br>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-    </section>
-
 </body>

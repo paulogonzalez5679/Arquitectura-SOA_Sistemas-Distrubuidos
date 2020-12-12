@@ -45,8 +45,9 @@
   padding: 3rem;
 }
 .logo-home {
-  width: 250px;
+  width: 350px;
   margin: 0 auto;
+  margin-bottom:5%
 }
 
 .paddding-0 {
@@ -160,8 +161,8 @@
 }
 
 .icon-bar {
-  background: #ffc009 !important;
-  color: #ffc009 !important;
+  background: #ff16ce !important;
+  color: #ff16ce !important;
 }
 
 .opc4 {
@@ -550,17 +551,17 @@
 }
 
 .opc:hover {
-  color: #ffc009;
+  color: #ff16ce;
 }
 
 .opcMenu:hover {
-  color: #ffc009;
+  color: #ff16ce;
 }
 
 .opc1:hover {
-  color: #ffc009;
+  color: #ff16ce;
   padding-bottom: 2%;
-  border-bottom: #ffc009 solid 6px;
+  border-bottom: #ff16ce solid 6px;
 }
 
 .menu {
@@ -768,7 +769,7 @@
   position: fixed;
   top: 0;
   width: 100%;
-  box-shadow: 0 2px 5px #ffc009;
+  box-shadow: 0 2px 5px #ff16ce;
   z-index: 999;
 } */
 
@@ -961,7 +962,8 @@
 }
 
 .card-servicios:hover {
-  background-color: #ffc009;
+  background-color: #38b6ff;
+  color: white;
 }
 
 /* Detecta hover del parent y aplica estilo al child */
@@ -1465,7 +1467,7 @@ li.valores15 {
 .btn-OK {
   min-height: 5rem;
   color: #ffffff;
-  background-color: #ffc009;
+  background-color: #ff16ce;
   height: 7rem;
   border: none;
 }
