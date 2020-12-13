@@ -151,7 +151,7 @@ export class ProductsComponent implements OnInit {
   consultar2() {
     this.dataService.getMusica(this.busqueda3).subscribe((data2: any[]) => {
       console.log(data2);
-      this.comida = data2['tracks']['hits'];
+      // this.musica = data2['tracks']['hits'];
     })
   }
  

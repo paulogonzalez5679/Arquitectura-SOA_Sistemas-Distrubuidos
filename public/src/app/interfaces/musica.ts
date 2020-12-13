@@ -1,12 +1,12 @@
 declare interface Musica {
-    track?: Track;    
+   hits?:Hits;
 }
 declare interface Hits{
+ track?:Track
+}
+declare interface Track{
   title?: string,
   subtitle?: string,
   url?: string
   images?:string;
-}
-declare interface Track{
-  hits?: Hits;
 }
