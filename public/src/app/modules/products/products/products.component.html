@@ -1,3 +1,7 @@
+<img style="width:250px;align-self: center; margin-left: auto;
+margin-right: auto;
+display: block;" class="text-center" src="../../assets/img/decoracionBMD.PNG"><br>
+
 <div class="main-content">
   <div class="container-fluid">
     <div class="row">
@@ -47,17 +51,17 @@
   </div>
 </div>
 <hr>
-<h1>
-  BUSCAR COMIDA
-</h1>
-<input type="text" name="message_name" required placeholder="Nombre" class="form-control input-contact"
+<img style="width:250px;align-self: center; margin-left: auto;
+margin-right: auto;
+display: block;" class="text-center" src="../../assets/img/comidaBMD.PNG"><br>
+
+<input type="text" name="message_name" required placeholder="Buscar comida" class="form-control input-contact"
   [(ngModel)]="busqueda" required #message_name="ngModel">
 
-<button (click)="consultar()" class="btn btn-success">
+<button  (click)="consultar()" class="btn btn-success button1" >
   BUSCAR
 </button>
-<div class="main-content">
-  <div class="container-fluid">
+
     <div class="row">
       <div class="col-md-12">
         <div class="card">
@@ -101,31 +105,38 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
 
 
 <hr>
 
-<h1>
-  BUSCAR CANCIONES
-</h1>
+<img style="width:250px;align-self: center; margin-left: auto;
+margin-right: auto;
+display: block;" class="text-center" src="../../assets/img/musicaBMD.PNG"><br>
 
-<input type="text" name="message_cancion" required placeholder="Nombre" 
-  [(ngModel)]="busqueda3" required #message_cancion="ngModel">
-<button (click)="consultar2()" class="btn btn-success">
+<input type="text" name="message_cancion" required placeholder="Buscar canción" [(ngModel)]="busqueda3" required
+  #message_cancion="ngModel" class="form-control input-contact"> 
+<button (click)="consultar2()" class="btn btn-success button1">
   BUSCAR
 </button>
-<div class="container mt-2">
+<ng-container>
   <div class="row">
-    <div class="col-md-3 col-sm-6">
-      <div class="card card-block" *ngFor="let musica of musica">
-        <h4 class="card-title text-right"><i class="material-icons">{{musica.track}}</i></h4>
-        <img src="https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg" alt="Photo of sunset">
-        <h5 class="card-title mt-3 mb-3">Sierra Web Development • Owner</h5>
-        <p class="card-text">This is a company that builds websites, web apps and e-commerce solutions.</p>
+    <div class="col-md-3 col-sm-6" *ngFor="let musica of musica">
+      <div class="card1 card-block" >
+        <h4 class="card-title1 text-right"><i class="material-icons">settings</i></h4>
+        <a href="{{musica.track.url}}">
+          <img class="img1" src="{{musica.track.images.coverarthq}}" alt="Photo of sunset">
+        </a>
+        <h5 class="card-title1 mt-3 mb-3 text-center">{{musica.track.title}}</h5>
+        <p class="card-text1 text-center" >{{musica.track.subtitle}}</p>
+        <button (click)="estadoNuevo3(musica)" type="button" class="btn btn-success content-center" style="margin-left:10rem ;">Seleccionar</button>
       </div>
+
+
 
     </div>
   </div>
-</div>
+</ng-container>
+
+<img style="width:250px;align-self: center; margin-left: auto;
+margin-right: auto;
+display: block;" class="text-center" src="../../assets/img/my date.gif" (click)='generatePdf()'><br>

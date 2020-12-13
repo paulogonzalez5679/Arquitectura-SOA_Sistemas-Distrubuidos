@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { UsersService } from 'app/services/users/users.service';
 import { AuthService } from 'app/services/auth/auth/auth.service';
+import { PdfMakeWrapper, Txt } from 'pdfmake-wrapper';
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 @Component({
   selector: 'app-perfil',
@@ -9,6 +13,15 @@ import { AuthService } from 'app/services/auth/auth/auth.service';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit {
+
+  title = 'angular-pdfmakewrapper';
+
+  generatePdf(){
+    const documentDefinition = { content: 'This is an sample PDF printed with pdfMake' };
+    pdfMake.createPdf(documentDefinition).open();
+
+   }
+
 
   public infoUser: Users;
   public user: Users;
@@ -24,6 +37,7 @@ export class PerfilComponent implements OnInit {
     private usersService: UsersService,
     private authService: AuthService,
     private router: Router,
+
   ) { }
 
   ngOnInit(): void {

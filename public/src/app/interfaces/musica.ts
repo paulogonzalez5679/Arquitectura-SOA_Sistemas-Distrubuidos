@@ -1,8 +1,14 @@
 declare interface Musica {
-   hits?:Hits;
+   track?:Track;
 }
 declare interface Track{
-  subtitle?:string,
-  title?: string,
-  url?:string,
+  subtitle?:string;
+  title?: string;
+  url?:string;
+  images:Images
+  
+}
+
+declare interface Images{
+  coverarthq?:string;
 }
