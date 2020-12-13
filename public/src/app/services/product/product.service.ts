@@ -12,22 +12,18 @@ export class ProductService {
     private category: AngularFirestore
   ) { }
 
+  // public getUserByEmail(user: Users) {
+  //   return this.category
+  //     .collection<Users>("users_collection").doc(user.user_email)
+  //     .snapshotChanges();
+  // }
+
   public getUserByEmail(user: Users) {
     return this.category
       .collection<Users>("users_collection").doc(user.user_email)
       .snapshotChanges();
   }
-  
-
-  //Guardar en el carrito
-  // getProductosCarrito(product: Product, users: Users) {
-  //   return this.product
-  //     .collection("users_collection")
-  //     .doc(users.user_id)
-  //     .collection("user_carrito")
-  //     .doc(product.pro_id)
-  //     .set(product);
-  // }
+ 
   public createDecoracion(decoracion: Decoration, usuario: Users) {
     console.log(decoracion.id);
     console.log(usuario.user_email);
@@ -35,6 +31,8 @@ export class ProductService {
     return this.category
     .collection("users_collection")
     .doc(usuario.user_email)
+    .collection("user_cita")
+    .doc("decoracion")
     .collection("user_decoracion")
     .doc(decoracion.nombre).set(decoracion); 
   }
@@ -42,13 +40,28 @@ export class ProductService {
   public createComida(comida: Comida, usuario: Users) {
     console.log(comida.food.label);
     console.log(usuario.user_email);
-    
     return this.category
     .collection("users_collection")
     .doc(usuario.user_email)
+    .collection("user_cita")
+    .doc("comida")
     .collection("user_comida")
     .doc(comida.food.label).set(comida); 
   }
+
+
+  // public createComida(comida: Comida, usuario: Users) {
+  //   console.log(comida.food.label);
+  //   console.log(usuario.user_email);
+    
+  //   return this.category
+  //   .collection("users_collection")
+  //   .doc(usuario.user_email)
+  //   .collection("user_comida")
+  //   .doc(comida.food.label).set(comida); 
+  // }
+
+  
 
   //Crea una nueva categoria
   public createProduct(product: Product) {

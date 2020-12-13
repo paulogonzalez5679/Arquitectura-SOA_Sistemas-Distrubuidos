@@ -22,7 +22,6 @@ export class ProductsComponent implements OnInit {
   public comida: Comida[];
   public musica: Musica[];
 
-  // public musica: Musica[];
   public busqueda: string = "";
   public busqueda2: string = "";
   public busqueda3: string = "";
@@ -55,7 +54,8 @@ export class ProductsComponent implements OnInit {
     private dataService: DataService) { }
 
   ngOnInit(): void {
- 
+    
+    
     this.infoUser = JSON.parse(localStorage.getItem("infoUser"));
     this.user = {};
     this.product = JSON.parse(localStorage.getItem("product"));
@@ -151,10 +151,22 @@ export class ProductsComponent implements OnInit {
   consultar2() {
     this.dataService.getMusica(this.busqueda3).subscribe((data2: any[]) => {
       console.log(data2);
-      // this.musica = data2['tracks']['hits'];
+      this.musica = data2['tracks']['hits'];
+      console.log(this.musica);
+      
     })
   }
  
+
+
+
+  // consultar2() {
+  //   this.dataService.getMusica(this.busqueda2).subscribe((data2: any[]) => {
+  //     console.log(data2);
+  //     // this.comida = data['hints'];
+  //   })
+  // }
+  
 
   /**
    * 
