@@ -11,7 +11,7 @@ HttpClientModule,<br>
 <br>
 ![alt text](https://firebasestorage.googleapis.com/v0/b/citas-59d77.appspot.com/o/imagenesGIT%2Fproxy.png?alt=media&token=cfcdc976-b43f-443e-9475-38d9781af276)
 
-Ves que lo hemos creado debemos ejecutar el servidor pero en modo debug, de tal manera que entre al proxy y permita realizar las peticiones, esto lo debemos configurar en el package.json
+Una ves que lo hemos creado debemos ejecutar el servidor pero en modo debug, de tal manera que entre al proxy y permita realizar las peticiones, esto lo debemos configurar en el package.json
 ![alt text](https://firebasestorage.googleapis.com/v0/b/citas-59d77.appspot.com/o/imagenesGIT%2Fjson.png?alt=media&token=a256df3e-8b13-43b5-8f4d-2e8d336321e5)
 
 Una ves finalizada esta parte debemos crear servicios y metodos los cuales obtendran las datos que necesitamos, es decir filtrar el Json que obtenemos, además de que esto nos permitira guardar en nuestra base de datos.
