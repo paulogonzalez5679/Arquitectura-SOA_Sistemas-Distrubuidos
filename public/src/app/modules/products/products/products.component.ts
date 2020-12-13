@@ -4,7 +4,9 @@ import * as firebase from "firebase/app";
 import { ProductService } from "../../../services/product/product.service";
 import { UsersService } from "app/services/users/users.service";
 import { DataService } from "app/services/data.service";
-
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 declare var $: any;
 export interface DataTable {
@@ -31,6 +33,8 @@ export class ProductsComponent implements OnInit {
   public category: Category;
   public arrayproduct: Decoration[];
   public arrayCategory: Category[];
+  public arraycomida: Comida[];
+  public arraymusica: Musica[];
   public arraySubcategory: SubCategory[];
   public documentId = null;
   public isEdit = false;
@@ -46,24 +50,30 @@ export class ProductsComponent implements OnInit {
   public infoUser: Users;
   public user: Users;
   public comidaUser: Comida;
+  public musicaUser: Musica;
+  public comida2:string;
+
   public food: Food;
+  public track: Track;
 
 
   constructor(private productService: ProductService, private usersService: UsersService,
-    
+
     private dataService: DataService) { }
 
   ngOnInit(): void {
-    
-    
+
+
+
+
     this.infoUser = JSON.parse(localStorage.getItem("infoUser"));
     this.user = {};
     this.product = JSON.parse(localStorage.getItem("product"));
     this.product = {};
     this.comida = JSON.parse(localStorage.getItem("comida"))
-    this.comida= [];
+    this.comida = [];
     this.musica = JSON.parse(localStorage.getItem("musica"))
-    this.musica= [];
+    this.musica = [];
 
     this.dataTable = {
       headerRow: [
@@ -94,31 +104,22 @@ export class ProductsComponent implements OnInit {
     this.tablaDatos2 = $("#datatablesProduct2").DataTable({});
     this.getProducts();
     this.getUsers();
+    this.getUsuarioComida();
+    this.getUsuarioMusica();
   }
+
+
+
+ 
+
   async getUsers() {
     (await this.usersService.getUserByEmails(this.infoUser.user_email)).subscribe((user) => {
-      console.log(user);
       this.user = user;
-      console.log(this.user)
     });
   }
-  async getProducts() {
-    await this.productService.getProducts('all').subscribe((prductSnapshot) => {
-      this.arrayproduct = [];
-      console.log(this.arrayproduct);
-      prductSnapshot.forEach((categoryData) => {
-
-        this.arrayproduct.push(categoryData.payload.doc.data());
-        // console.log(prductSnapshot.length + '' + this.arrayproduct.length);
-        if (prductSnapshot.length == this.arrayproduct.length) {
-          this.initDataTable();
-        }
-      });
-    });
-  }
+  
   consultar() {
     this.dataService.sendGetRequest(this.busqueda).subscribe((data: any[]) => {
-      console.log(data['hints']);
       this.comida = data['hints'];
     })
   }
@@ -150,13 +151,11 @@ export class ProductsComponent implements OnInit {
   }
   consultar2() {
     this.dataService.getMusica(this.busqueda3).subscribe((data2: any[]) => {
-      console.log(data2);
       this.musica = data2['tracks']['hits'];
-      console.log(this.musica);
-      
+
     })
   }
- 
+
 
 
 
@@ -166,7 +165,7 @@ export class ProductsComponent implements OnInit {
   //     // this.comida = data['hints'];
   //   })
   // }
-  
+
 
   /**
    * 
@@ -177,9 +176,7 @@ export class ProductsComponent implements OnInit {
      */
   estadoNuevo(e, product) {
     if (e) {
-      console.log(e, product);
       this.product = product;
-      console.log(this.product);
       this.productService.createDecoracion(this.product, this.infoUser).then(() => {
         this.product = {
           id: "",
@@ -193,15 +190,24 @@ export class ProductsComponent implements OnInit {
   }
   estadoNuevo2(e, comida) {
     if (e) {
-      console.log(e, comida);
       this.comidaUser = comida;
-      console.log( this.comidaUser);
       this.productService.createComida(this.comidaUser, this.infoUser).then(() => {
         this.comidaUser = {
           food: this.comidaUser.food
         };
       });
     }
+  }
+
+  estadoNuevo3(musica) {
+
+    this.musicaUser = musica;
+    this.productService.createMusica(this.musicaUser, this.infoUser).then(() => {
+      this.musicaUser = {
+        track: this.musicaUser.track
+      };
+    });
+
   }
 
   initDataTable2() {
@@ -229,4 +235,67 @@ export class ProductsComponent implements OnInit {
     }, 10);
   }
 
+
+
+  async getProducts() {
+    await this.productService.getProducts('all').subscribe((prductSnapshot) => {
+      this.arrayproduct = [];
+      prductSnapshot.forEach((categoryData) => {
+
+        this.arrayproduct.push(categoryData.payload.doc.data());
+        // console.log(prductSnapshot.length + '' + this.arrayproduct.length);
+        if (prductSnapshot.length == this.arrayproduct.length) {
+          this.initDataTable();
+        }
+      });
+    });
+  }
+
+  async getUsuarioComida() {
+    
+    
+    await this.productService.getComida(this.infoUser.user_email).subscribe((prductSnapshot) => {
+      console.log(prductSnapshot);
+      
+      this.arraycomida = [];
+      console.log(this.arraycomida);
+      prductSnapshot.forEach((categoryData) => {
+
+        this.arraycomida.push(categoryData.payload.doc.data());
+        // console.log(prductSnapshot.length + '' + this.arrayproduct.length);
+        if (prductSnapshot.length == this.arraycomida.length) {
+          console.log(this.arraycomida);
+        }
+      });
+    });
+  }
+
+  async getUsuarioMusica() {
+    await this.productService.getMusica(this.infoUser.user_email).subscribe((prductSnapshot) => {
+      console.log(prductSnapshot);
+      
+      this.arraymusica = [];
+      console.log(this.arraymusica);
+      prductSnapshot.forEach((categoryData) => {
+
+        this.arraymusica.push(categoryData.payload.doc.data());
+        // console.log(prductSnapshot.length + '' + this.arrayproduct.length);
+        if (prductSnapshot.length == this.arraymusica.length) {
+          console.log(this.arraymusica);
+        }
+      });
+    });
+  }
+
+
+  generatePdf() {
+    for(let comida2 of this.arraycomida){
+      console.log("holaaa",comida2.food.label)
+      const documentDefinition = { content: this.infoUser.user_cell_phone + ' ' + comida2.food.label };
+      pdfMake.createPdf(documentDefinition).open();
+    }
+    
+   
+
+  }
 }

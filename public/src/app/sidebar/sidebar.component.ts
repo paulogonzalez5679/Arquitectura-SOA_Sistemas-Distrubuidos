@@ -23,17 +23,17 @@ export interface ChildrenItems {
 
 //Menu Items
 export const ROUTES: RouteInfo[] = [
-    {
-        path: '/index',
-        title: 'Inicio',
-        type: 'link',
-        icontype: 'pe-7s-home'
-    }, {
-        path: '/pages/list-prod',
-        title: 'Productos',
-        type: 'link',
-        icontype: 'pe-7s-box2'
-    }
+    // {
+    //     path: '/index',
+    //     title: 'Inicio',
+    //     type: 'link',
+    //     icontype: 'pe-7s-home'
+    // }, {
+    //     path: '/pages/list-prod',
+    //     title: 'Productos',
+    //     type: 'link',
+    //     icontype: 'pe-7s-box2'
+    // }
 ];
 
 export const ROUTESADMIN: RouteInfo[] = [
@@ -43,12 +43,12 @@ export const ROUTESADMIN: RouteInfo[] = [
     //     type: 'link',
     //     icontype: 'pe-7s-home'
     // }, 
-    {
-        path: '/products',
-        title: 'CITA',
-        type: 'link',
-        icontype: 'pe-7s-box2'
-    },
+        // {
+        //     path: '/products',
+        //     title: 'CITA',
+        //     type: 'link',
+        //     icontype: 'pe-7s-box2'
+        // },
 ];
 
 @Component({

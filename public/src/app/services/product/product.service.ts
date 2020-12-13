@@ -23,37 +23,57 @@ export class ProductService {
       .collection<Users>("users_collection").doc(user.user_email)
       .snapshotChanges();
   }
- 
+
   public createDecoracion(decoracion: Decoration, usuario: Users) {
     console.log(decoracion.id);
     console.log(usuario.user_email);
-    
+
     return this.category
-    .collection("users_collection")
-    .doc(usuario.user_email)
-    .collection("user_cita")
-    .doc("decoracion")
-    .collection("user_decoracion")
-    .doc(decoracion.nombre).set(decoracion); 
+      .collection("users_collection")
+      .doc(usuario.user_email)
+      .collection("user_cita")
+      .doc("decoracion")
+      .collection("user_decoracion")
+      .doc(decoracion.nombre).set(decoracion);
   }
 
   public createComida(comida: Comida, usuario: Users) {
     console.log(comida.food.label);
     console.log(usuario.user_email);
     return this.category
-    .collection("users_collection")
-    .doc(usuario.user_email)
-    .collection("user_cita")
-    .doc("comida")
-    .collection("user_comida")
-    .doc(comida.food.label).set(comida); 
+      .collection("users_collection")
+      .doc(usuario.user_email)
+      .collection("user_cita")
+      .doc("comida")
+      .collection("user_comida")
+      .doc(comida.food.label).set(comida);
   }
 
+
+  public createMusica(musica: Musica, usuario: Users) {
+    // console.log(musica.food.label);
+    console.log(usuario.user_email);
+    return this.category
+      .collection("users_collection")
+      .doc(usuario.user_email)
+      .collection("user_cita")
+      .doc("musica")
+      .collection("user_musica")
+      .doc(musica.track.subtitle + ' ' + musica.track.title).set(musica);
+  }
+
+  public getComida(id: string) {
+    return this.product.collection("users_collection").doc(id).collection("user_cita").doc("comida").collection("user_comida").snapshotChanges();
+  }
+
+  public getMusica(id: string) {
+    return this.product.collection("users_collection").doc(id).collection("user_cita").doc("musica").collection("user_musica").snapshotChanges();
+  }
 
   // public createComida(comida: Comida, usuario: Users) {
   //   console.log(comida.food.label);
   //   console.log(usuario.user_email);
-    
+
   //   return this.category
   //   .collection("users_collection")
   //   .doc(usuario.user_email)
@@ -61,7 +81,7 @@ export class ProductService {
   //   .doc(comida.food.label).set(comida); 
   // }
 
-  
+
 
   //Crea una nueva categoria
   public createProduct(product: Product) {
@@ -82,7 +102,7 @@ export class ProductService {
     console.log(category);
     if (category == 'all') {
       return this.product.collection("decoration").snapshotChanges();
-    } 
+    }
 
   }
   //Obtiene todos productos ascendente
