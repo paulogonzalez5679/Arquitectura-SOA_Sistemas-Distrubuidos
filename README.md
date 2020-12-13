@@ -4,4 +4,6 @@ por medio de peticiones HTTP, por lo cual ocupamos el modulo HttpClient, que nos
 La configuracion es la siguiente: <br>
 1. Dentro del app.module.ts debemos agregar lo siguiente <br>
 import { HttpClientModule } from '@angular/common/http'; <br>
-2. 
+2. Lo importamos dentro del @NgModule: <br>
+HttpClientModule,<br>
+3. Ahora debemos crear un servicio el cual obtendra las cabeceras para las peticiones, pero a su ves debemos crear un proxy para que angular de de acceso a dichas peticiones, ya que como son API's sin ninguna certificacion de seguridad, angular las toma como pontencialmente peligrosas, por lo cual niega cualquier peticion 
