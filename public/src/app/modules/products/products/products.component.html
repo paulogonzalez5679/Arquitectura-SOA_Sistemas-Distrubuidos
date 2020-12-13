@@ -1,3 +1,7 @@
+<img style="width:250px;align-self: center; margin-left: auto;
+margin-right: auto;
+display: block;" class="text-center" src="../../assets/img/decoracionBMD.PNG"><br>
+
 <div class="main-content">
   <div class="container-fluid">
     <div class="row">
@@ -47,17 +51,17 @@
   </div>
 </div>
 <hr>
-<h1>
-  BUSCAR COMIDA
-</h1>
-<input type="text" name="message_name" required placeholder="Nombre" class="form-control input-contact"
+<img style="width:250px;align-self: center; margin-left: auto;
+margin-right: auto;
+display: block;" class="text-center" src="../../assets/img/comidaBMD.PNG"><br>
+
+<input type="text" name="message_name" required placeholder="Buscar comida" class="form-control input-contact"
   [(ngModel)]="busqueda" required #message_name="ngModel">
 
-<button (click)="consultar()" class="btn btn-success">
+<button  (click)="consultar()" class="btn btn-success button1" >
   BUSCAR
 </button>
-<div class="main-content">
-  <div class="container-fluid">
+
     <div class="row">
       <div class="col-md-12">
         <div class="card">
@@ -101,19 +105,17 @@
         </div>
       </div>
     </div>
-  </div>
-</div>
 
 
 <hr>
 
-<h1>
-  BUSCAR CANCIONES
-</h1>
+<img style="width:250px;align-self: center; margin-left: auto;
+margin-right: auto;
+display: block;" class="text-center" src="../../assets/img/musicaBMD.PNG"><br>
 
-<input type="text" name="message_cancion" required placeholder="Nombre" [(ngModel)]="busqueda3" required
-  #message_cancion="ngModel">
-<button (click)="consultar2()" class="btn btn-success">
+<input type="text" name="message_cancion" required placeholder="Buscar canción" [(ngModel)]="busqueda3" required
+  #message_cancion="ngModel" class="form-control input-contact"> 
+<button (click)="consultar2()" class="btn btn-success button1">
   BUSCAR
 </button>
 <ng-container>
@@ -135,4 +137,6 @@
   </div>
 </ng-container>
 
-<button (click)="generatePdf()">Open PDF</button>
+<img style="width:250px;align-self: center; margin-left: auto;
+margin-right: auto;
+display: block;" class="text-center" src="../../assets/img/my date.gif" (click)='generatePdf()'><br>

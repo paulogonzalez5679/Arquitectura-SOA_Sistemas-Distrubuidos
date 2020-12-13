@@ -6,6 +6,7 @@ import { UsersService } from "app/services/users/users.service";
 import { DataService } from "app/services/data.service";
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
+import { Img, PdfMakeWrapper } from "pdfmake-wrapper";
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 declare var $: any;
@@ -51,7 +52,7 @@ export class ProductsComponent implements OnInit {
   public user: Users;
   public comidaUser: Comida;
   public musicaUser: Musica;
-  public comida2:string;
+  public comida2: string;
 
   public food: Food;
   public track: Track;
@@ -100,8 +101,7 @@ export class ProductsComponent implements OnInit {
       ],
       dataRows: [],
     };
-    this.tablaDatos = $("#datatablesProduct").DataTable({});
-    this.tablaDatos2 = $("#datatablesProduct2").DataTable({});
+
     this.getProducts();
     this.getUsers();
     this.getUsuarioComida();
@@ -110,14 +110,14 @@ export class ProductsComponent implements OnInit {
 
 
 
- 
+
 
   async getUsers() {
     (await this.usersService.getUserByEmails(this.infoUser.user_email)).subscribe((user) => {
       this.user = user;
     });
   }
-  
+
   consultar() {
     this.dataService.sendGetRequest(this.busqueda).subscribe((data: any[]) => {
       this.comida = data['hints'];
@@ -244,19 +244,19 @@ export class ProductsComponent implements OnInit {
 
         this.arrayproduct.push(categoryData.payload.doc.data());
         // console.log(prductSnapshot.length + '' + this.arrayproduct.length);
-        if (prductSnapshot.length == this.arrayproduct.length) {
-          this.initDataTable();
-        }
+        // if (prductSnapshot.length == this.arrayproduct.length) {
+        //   this.initDataTable();
+        // }
       });
     });
   }
 
   async getUsuarioComida() {
-    
-    
+
+
     await this.productService.getComida(this.infoUser.user_email).subscribe((prductSnapshot) => {
       console.log(prductSnapshot);
-      
+
       this.arraycomida = [];
       console.log(this.arraycomida);
       prductSnapshot.forEach((categoryData) => {
@@ -273,7 +273,7 @@ export class ProductsComponent implements OnInit {
   async getUsuarioMusica() {
     await this.productService.getMusica(this.infoUser.user_email).subscribe((prductSnapshot) => {
       console.log(prductSnapshot);
-      
+
       this.arraymusica = [];
       console.log(this.arraymusica);
       prductSnapshot.forEach((categoryData) => {
@@ -288,14 +288,202 @@ export class ProductsComponent implements OnInit {
   }
 
 
-  generatePdf() {
-    for(let comida2 of this.arraycomida){
-      console.log("holaaa",comida2.food.label)
-      const documentDefinition = { content: this.infoUser.user_cell_phone + ' ' + comida2.food.label };
-      pdfMake.createPdf(documentDefinition).open();
+   generatePdf() {
+    for (let comida2 of this.arraycomida) {
+      console.log("holaaa", comida2.food.label)
+      for (let decoracion of this.arrayproduct) {
+
+        for (let musica of this.arraymusica) {
+          const pdf = new PdfMakeWrapper();
+
+         
+
+        
+          const documentDefinition = {
+            
+            content:
+              //  this.infoUser.user_cell_phone + ' ' + comida2.food.label
+
+              [
+
+              
+                {
+                  text: 'MY DATE',
+                  bold: true,
+                  fontSize: 20,
+                  alignment: 'center',
+                  margin: [0, 0, 0, 20]
+                },
+                {
+                  text: 'Hola, estas cordialmente invitada/o a una cita en mi casa, ya que por época de pandemia es dificl salir y estar juntos',
+                  bold: true,
+                  fontSize: 13,
+                  alignment: 'center',
+
+                },
+                {
+                  text: 'A continuación te presento nuestras actividades:',
+                  bold: true,
+                  fontSize: 13,
+                  alignment: 'center',
+                  margin: [0, 0, 0, 20]
+                },
+                {
+                  columns: [
+                    [
+                      {
+                        text: 'Menú',
+                        bold: true,
+                        fontSize: 20,
+                        alignment: 'center',
+                        margin: [0, 0, 0, 10],
+                        color: '#ff16ce'
+                      },
+              
+                      
+                      {
+                        text: ' Plato fuerte: ' + comida2.food.label,
+                        alignment: 'center',
+
+                      },
+                      {
+                        text: 'Energía Calórica: ' + comida2.food.nutrients.ENERC_KCAL,
+                        alignment: 'center',
+
+                      },
+                      {
+                        text: 'Grasas: ' + comida2.food.nutrients.FAT,
+                        link: this.infoUser.user_cell_phone,
+                        alignment: 'center',
+                        margin: [0, 0, 0, 40]
+
+                      },
+                      {
+                        text: 'Decoración',
+                        bold: true,
+                        fontSize: 20,
+                        alignment: 'center',
+                        margin: [0, 0, 0, 10],
+                        color: '#ff16ce'
+
+                      },
+                      {
+                        text: 'Nombre: ' + decoracion.nombre,
+                        alignment: 'center',
+
+                      },
+                      {
+                        text: ' Descripción: ' + decoracion.descripcion,
+                        alignment: 'center',
+                        margin: [0, 0, 0, 40]
+
+                      },
+                      {
+                        text: 'Música del momento',
+                        color: '#ff16ce',
+                        bold: true,
+                        fontSize: 20,
+                        alignment: 'center',
+                        margin: [0, 0, 0, 10]
+                      },
+
+                      {
+                        text: 'Titulo: ' + musica.track.title,
+                        alignment: 'center',
+
+                      },
+                      {
+                        text: ' Subtitulo: ' + musica.track.title,
+                        alignment: 'center',
+                        margin: [0, 0, 0, 40]
+
+
+                      },
+
+                      {
+                        text: 'Atentamente',
+                        bold: true,
+                        fontSize: 20,
+                        alignment: 'left',
+                        margin: [0, 0, 0, 10],
+                        background: '#38b6ff'
+
+                      },
+
+                      {
+                        text: 'Nombre: ' + this.infoUser.user_name,
+                        alignment: 'left',
+
+                      },
+                      {
+                        text: 'Telefono: ' + this.infoUser.user_cell_phone,
+                        alignment: 'left',
+
+                      },
+                      {
+                        text: 'Correo : ' + this.infoUser.user_email,
+                        alignment: 'left',
+
+                      },
+                      {
+                        text: this.infoUser.user_city,
+                        alignment: 'left',
+
+                      },
+                      {
+                        text: 'Espero que asistas',
+                        bold: true,
+                        fontSize: 20,
+                        alignment: 'center',
+                        margin: [0, 0, 0, 20],
+                        background: 'yellow'
+                      },
+
+
+                    ],
+                  ]
+                }],
+            styles: {
+              name: {
+                fontSize: 16,
+                bold: true
+              }
+
+
+
+
+            }
+
+
+          };
+
+
+          pdfMake.createPdf(documentDefinition).open();
+
+
+        }
+      }
+
+
+
     }
-    
-   
+
 
   }
+  getProfilePicObject() {
+    for (let musica of this.arraymusica) {
+      if (musica.track.images) {
+        return {
+          image: musica.track.images,
+          width: 75,
+          alignment: 'right'
+        };
+      }
+      return null;
+    }
+
+
+  }
+
+
 }

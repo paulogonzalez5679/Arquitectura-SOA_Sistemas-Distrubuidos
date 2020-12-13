@@ -86,6 +86,11 @@
     transition:1s;
     cursor:pointer;
   }
+
+  .input-contact{
+    width: 302px;
+    text-align:center
+  }
   .card-title1 i{  
     font-size:15px;
     transition:1s;
@@ -125,4 +130,21 @@
   }
   .card1:hover::before, .card:hover::after, .card:focus::before, .card:focus::after {
     transform: scale3d(1, 1, 1);
+  }
+
+  .button1 {
+    background-color: #38b6ff;
+    width: 302px;
+    border: 0;
+    padding: 10px 0;
+    margin: 5px 0;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+  }
+
+  .dropdown {
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
   }
