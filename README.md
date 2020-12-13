@@ -21,34 +21,34 @@ Una ves finalizada esta parte debemos crear servicios y metodos los cuales obten
 ![alt text](https://firebasestorage.googleapis.com/v0/b/citas-59d77.appspot.com/o/imagenesGIT%2Fmusica.png?alt=media&token=2e98aa39-9c9a-4512-ba57-38a4b4090c95)
 
 Ahora con los siguientes servicios servicios almacenan la informacion seleccionada por cada usuario, en colecciones y documentos <br>
-- Decoracion
+- Decoracion <br>
 ![alt text](https://firebasestorage.googleapis.com/v0/b/citas-59d77.appspot.com/o/imagenesGIT%2FGuardar%20decoracion%20en%20la%20base.png?alt=media&token=5cd3e109-83d6-4a43-8b9e-5c45e704ede2)
-- Música
+- Música <br>
 ![alt text](https://firebasestorage.googleapis.com/v0/b/citas-59d77.appspot.com/o/imagenesGIT%2Fguardar%20musica%20en%20la%20base.png?alt=media&token=b469119d-e513-4c71-8586-8aa4a166c3d5)
-- Comida
+- Comida <br>
 ![alt text](https://firebasestorage.googleapis.com/v0/b/citas-59d77.appspot.com/o/imagenesGIT%2Fguardar%20comida%20en%20base.png?alt=media&token=9b8895f9-0e4b-4e4a-9f51-bae63a077410)
 
 Ahora debemos recuperar la informacion de la base para poder generar un PDF cuando el usuario finalice el proceso de seleccion
-- Obtenemos la data la decoracion
+- Obtenemos la data la decoracion <br>
 ![alt text](https://firebasestorage.googleapis.com/v0/b/citas-59d77.appspot.com/o/imagenesGIT%2Fobtener%20decoracion%20de%20la%20base.png?alt=media&token=32f1dcdb-cd49-4163-a662-1c232fef6a2f)
-- Obtenemos la data de la musica
+- Obtenemos la data de la musica <br>
 ![alt text](https://firebasestorage.googleapis.com/v0/b/citas-59d77.appspot.com/o/imagenesGIT%2Fobtener%20musica%20de%20la%20base.png?alt=media&token=65954ad1-8ffd-44ca-9fe9-e10656b89e20)
-- Obtenemos la data de la comida
+- Obtenemos la data de la comida <br>
 ![alt text](https://firebasestorage.googleapis.com/v0/b/citas-59d77.appspot.com/o/imagenesGIT%2Fobtener%20comida%20de%20la%20base.png?alt=media&token=d6ff510f-9c49-47d2-8f31-0da7f2c20662)
 
 ## Implementación
 Con todo esto implementado tenemos el siguiente resultado en la interfaz que se le presenta al usuario:
-- Pagina principal 
+- Pagina principal <br>
 ![alt text](https://firebasestorage.googleapis.com/v0/b/citas-59d77.appspot.com/o/imagenesGIT%2Fpagina%201.png?alt=media&token=892b344d-a6a6-4298-9ebb-f081895f9867)
-- Seccion decoracion
+- Seccion decoracion <br>
 ![alt text](https://firebasestorage.googleapis.com/v0/b/citas-59d77.appspot.com/o/imagenesGIT%2Fdecoracionpagina.png?alt=media&token=09967330-e62c-43a9-84c6-edf0cc747317)
-- Seccion comida
+- Seccion comida <br>
 ![alt text](https://firebasestorage.googleapis.com/v0/b/citas-59d77.appspot.com/o/imagenesGIT%2Fcomida%20pagina.png?alt=media&token=bfa78562-7c16-43a4-ab58-00a8a3848a3e)
-- Seccion musica
+- Seccion musica <br>
 ![alt text](https://firebasestorage.googleapis.com/v0/b/citas-59d77.appspot.com/o/imagenesGIT%2Fmusicapag.png?alt=media&token=fb574e19-1ca0-4d3c-bc5b-2bbd2ba20f0e)
-- Seccion Invitacion
+- Seccion Invitacion <br>
 ![alt text](https://firebasestorage.googleapis.com/v0/b/citas-59d77.appspot.com/o/imagenesGIT%2Finvitacion.png?alt=media&token=db5e2191-2156-45e3-ab40-b4a7151ae802)
-- PDF generado
+- PDF generado <br>
 ![alt text](https://firebasestorage.googleapis.com/v0/b/citas-59d77.appspot.com/o/imagenesGIT%2FPDF.png?alt=media&token=9795ca6a-0bc4-43ed-a271-92c304ad7300)
  
 
