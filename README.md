@@ -1,4 +1,4 @@
 # Proyecto Interciclo - Arquitectura SOA
 ## Realizado por:
-Tatiana Cardenas 
-Paulo Gonzalez
+- Tatiana Cardenas 
+- Paulo Gonzalez
