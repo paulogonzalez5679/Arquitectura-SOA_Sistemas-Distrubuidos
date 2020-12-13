@@ -27,6 +27,7 @@ import { CarritoComponent } from './index/carrito/carrito.component';
 import { HttpClientModule } from '@angular/common/http';
 import { PaymentComponent } from './modules/payment/payment.component';
 import { ListProductComponent } from './index/list-product/list-product.component';
+import { PdfMakeWrapper } from 'pdfmake-wrapper';
 
 
 
@@ -48,7 +49,8 @@ import { ListProductComponent } from './index/list-product/list-product.componen
         AngularFireAuthModule,
         AngularFireStorageModule,
         MatSliderModule,
-        HttpClientModule
+        HttpClientModule,
+       
     ],
     declarations: [
         AppComponent,
